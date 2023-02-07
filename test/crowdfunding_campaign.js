@@ -116,22 +116,3 @@ const CrowdfundingCampaign = artifacts.require('CrowdfundingCampaign');
     });
 
 });
-
-
-// const campaignID = 1;
-// const sender = accounts[0]; // assign sender value
-
-// // get the transfer value from mapping storage
-// const amount = await instance.donators.call(sender, {from: sender});
-
-// // check if the transfer was successful, return 'sent' on success
-// const sent = await instance.refund(campaignID, {from: sender, value: amount});
-// assert.equal(sent, true, "ETH Refund failed");
-
-// // set contribution to 0
-// const contribution = await instance.donators.call(sender, {from: sender});
-// assert.equal(contribution, 0, "Contribution was not set to 0");
-
-// // decrease campaigns 'amountCollected', delete campaign when all funds returned
-// const amountCollected = await instance.amountCollected.call({from: sender});
-// assert.isBelow(amountCollected, amount, "Campaign amount collected was not decreased");
