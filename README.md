@@ -1,91 +1,75 @@
-# CrowdFunding_Dapp
+CrowdfundingCampaign Contract Documentation
+This contract allows users to create and donate to crowdfunding campaigns. It also allows campaign owners to withdraw funds if the goal is met.
 
-CrowdfundingDapp Contract Documentation
-
-This contract implements a crowdfunding campaign with the following features:
-
-Create a new campaign with a duration, raising goal, title, description, and image.
-
-Donate ETH to an existing campaign.
-
-Withdraw funds from a successful campaign.
-
-Get a list of donators and donations for a campaign.
-
-Get a list of all campaigns.
-
+Constructor
+The constructor sets the deployer to the address of the contract creator.
 
 Structs
-The contract stores campaign data in the Campaign struct.
+    The contract has a single struct, Campaign, which holds data about an individual campaign. It contains the following fields:
+    campaignID
+    : a unique identifier for the campaign
+    owner
+    : the address of the campaign creator
+    title
+    : the title of the campaign
+    description
+    : a description of the campaign
+    image
+    : an image associated with the campaign
+    duration
+    : the length of the campaign in seconds
+    raisingGoal
+    : the amount of ETH needed to reach the goal of the campaign
+    deadline
+    : the timestamp when the campaign ends
+    amountCollected
+    : the amount of ETH currently collected for the campaign
+    donators
+    : a mapping of addresses to the amount of ETH donated by each address
 
-struct Campaign {
-    uint campaignID;
-    address payable owner;
-    string title;
-    string description;
-    string image;
-    uint duration;
-    uint raisingGoal;
-    uint deadline;
-    uint amountCollected;
-    address[] donators;
-    uint256[] donations;
-}
-
-Mappings
-The contract stores campaigns in a mapping from campaign ID to Campaign struct:
-
-mapping(uint => Campaign) public campaigns;
+Events
+    The contract emits a LogCampaign event when a new campaign is created. It shows all the fields from struct, but nested mapping of donators:
+    campaignID
+    owner
+    title
+    description
+    image
+    duration
+    raisingGoal
+    deadline
+    amountCollected
 
 Functions
-createCampaign
+The contract has the following functions:
 
-createCampaign is used to create a new crowdfunding campaign.
+    createCampaign()
+        This function allows users to create a new crowdfunding campaign. It takes the following parameters:
+        _duration
+        _raisingGoal
+        _title
+        _description
+        _image
+        It returns the number of campaigns created.
 
-  Parameters
-  _duration: Duration of the campaign in seconds.
-  _raisingGoal: Amount of ETH that must be raised for the campaign to be successful.
-  _title: Title of the campaign.
-  _description: Description of the campaign.
-  _image: Image associated with the campaign.
-  Returns campaign ID of the newly created campaign.
+    donateToCampaign
+        This function allows users to donate to an existing crowdfunding campaign. It takes the following parameter:
+        _campaignID
+        It requires that the campaign exists, that the campaign's deadline has not passed, and that the transaction has a value. It adds the value of the transaction to the campaign's amountCollected and stores the amount donated by the sender in the donators mapping.
 
-donateToCampaign
-donateToCampaign
- is used to donate ETH to an existing campaign.
+    refund()
+        This function allows users to withdraw their donation from a crowdfunding campaign. It also takes the parameter _campaignID
+        It requires that the campaign exists, that the campaign has failed to meet its goal, that the sender has donated to the campaign. It refunds the amount donated by the sender to their address and decreases the campaign's amountCollected accordingly. If the campaign has no remaining funds and its deadline has passed, it is deleted from the contract. 
+        Optionally we can also enable requirement , that the campaign's deadline has passed. This way refunds will only be possible on finished, failed campaigns.
 
-Parameters
-_campaignID
-: ID of the campaign to donate to.
-withdrawFunds
-withdrawFunds
- is used to withdraw funds from a successful campaign. Only the campaign creator can withdraw funds.
+    withdrawFunds
+        This function allows campaign owners to withdraw funds from a successful crowdfunding campaign. It also takes the parameter _campaignID 
+        It requires that the campaign exists, that the campaign has met its goal, and that the sender is the campaign owner. It transfers the amount raised to the campaign owner minus a 5% commission. The commission is automatically transferred to the contract deployer. It then deletes the campaign from the contract.
 
-Parameters
-_campaignID
-: ID of the campaign to withdraw funds from.
-getDonators
-getDonators
- is used to get a list of donators and donations for a campaign.
+    getAllCampaigns
+        This function returns an array of CampaignView structs containing data about all existing campaigns. It does not include data about the donators, because it’s contained in the nested mapping and these mappings are not iterable.
 
-Parameters
-_campaignID
-: ID of the campaign to get donators and donations for.
-Returns
-Returns an array of donator addresses and an array of donation amounts associated with the campaign.
+    getCurrentTime
+        This function returns the current timestamp. It is used mostly for testing purposes, but can be used in JavaScript, so time on website will be syncronised with block.timestamp, which may vary from scripts Date.now().
 
-getCampaigns
-getCampaigns
- is used to get a list of all campaigns.
+Contract is written on Solidity version 0.8.17. Tests are realised using Truffle and Ganache testing environment. Live version is deployed to Goerli Etherium Testnet (https://rpc.ankr.com/eth_goerli). Test also contains tests results (terminal log). Contract was also tested manually using https://remix.ethereum.org/.
 
-Returns
-Returns an array of 
-Campaign
- structs containing all campaigns.
-
-getCurrentTime
-getCurrentTime
- is used to get the current time. This is used for testing only.
-
-Returns
-Returns the current time in seconds since the Unix epoch.
