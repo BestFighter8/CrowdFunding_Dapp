@@ -1,0 +1,269 @@
+PS A:\Projects\CrowdFundingDapp> truffle test
+Using network 'development'.
+
+
+Compiling your contracts...
+===========================
+> Compiling .\contracts\CrowdfundingCampaign.sol
+> Compiling .\contracts\CrowdfundingCampaign.sol
+> Artifacts written to C:\Users\arsen\AppData\Local\Temp\test--15820-aMXA1sYMm4TV
+> Compiled successfully using:
+   - solc: 0.8.17+commit.8df45f5f.Emscripten.clang
+
+
+  Contract: CrowdfundingCampaign
+Result {
+  '0': BN {
+    negative: 0,
+    words: [ 1, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '1': '0x1B32c8bE812979049E6Fc036df007a4A8b3F40B0',
+  '2': 'Test Campaign',
+  '3': 'This is a test campaign',
+  '4': 'image.jpg',
+  '5': BN {
+    negative: 0,
+    words: [ 100, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '6': BN {
+    negative: 0,
+    words: [ 10000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '7': BN {
+    negative: 0,
+    words: [ 65161705, 24, <1 empty item> ],
+    length: 2,
+    red: null
+  },
+  '8': BN {
+    negative: 0,
+    words: [ 0, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  campaignID: BN {
+    negative: 0,
+    words: [ 1, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  owner: '0x1B32c8bE812979049E6Fc036df007a4A8b3F40B0',
+  title: 'Test Campaign',
+  description: 'This is a test campaign',
+  image: 'image.jpg',
+  duration: BN {
+    negative: 0,
+    words: [ 100, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  raisingGoal: BN {
+    negative: 0,
+    words: [ 10000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  deadline: BN {
+    negative: 0,
+    words: [ 65161705, 24, <1 empty item> ],
+    length: 2,
+    red: null
+  },
+  amountCollected: BN {
+    negative: 0,
+    words: [ 0, <1 empty item> ],
+    length: 1,
+    red: null
+  }
+}
+Result {
+  '0': BN {
+    negative: 0,
+    words: [ 2, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '1': '0x1B32c8bE812979049E6Fc036df007a4A8b3F40B0',
+  '2': 'Test Campaign',
+  '3': 'This is a test campaign',
+  '4': 'image.jpg',
+  '5': BN {
+    negative: 0,
+    words: [ 100, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '6': BN {
+    negative: 0,
+    words: [ 10000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '7': BN {
+    negative: 0,
+    words: [ 65161709, 24, <1 empty item> ],
+    length: 2,
+    red: null
+  },
+  '8': BN {
+    negative: 0,
+    words: [ 0, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  campaignID: BN {
+    negative: 0,
+    words: [ 2, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  owner: '0x1B32c8bE812979049E6Fc036df007a4A8b3F40B0',
+  title: 'Test Campaign',
+  description: 'This is a test campaign',
+  image: 'image.jpg',
+  duration: BN {
+    negative: 0,
+    words: [ 100, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  raisingGoal: BN {
+    negative: 0,
+    words: [ 10000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  deadline: BN {
+    negative: 0,
+    words: [ 65161709, 24, <1 empty item> ],
+    length: 2,
+    red: null
+  },
+  amountCollected: BN {
+    negative: 0,
+    words: [ 0, <1 empty item> ],
+    length: 1,
+    red: null
+  }
+}
+    ✔ should create a campaign struct with the correct values (6878ms)
+Result {
+  '0': BN {
+    negative: 0,
+    words: [ 1, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '1': '0x1B32c8bE812979049E6Fc036df007a4A8b3F40B0',
+  '2': 'Name',
+  '3': 'Description',
+  '4': 'image.jpg',
+  '5': BN {
+    negative: 0,
+    words: [ 100, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '6': BN {
+    negative: 0,
+    words: [ 10000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  '7': BN {
+    negative: 0,
+    words: [ 65161715, 24, <1 empty item> ],
+    length: 2,
+    red: null
+  },
+  '8': BN {
+    negative: 0,
+    words: [ 5000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  campaignID: BN {
+    negative: 0,
+    words: [ 1, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  owner: '0x1B32c8bE812979049E6Fc036df007a4A8b3F40B0',
+  title: 'Name',
+  description: 'Description',
+  image: 'image.jpg',
+  duration: BN {
+    negative: 0,
+    words: [ 100, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  raisingGoal: BN {
+    negative: 0,
+    words: [ 10000, <1 empty item> ],
+    length: 1,
+    red: null
+  },
+  deadline: BN {
+    negative: 0,
+    words: [ 65161715, 24, <1 empty item> ],
+    length: 2,
+    red: null
+  },
+  amountCollected: BN {
+    negative: 0,
+    words: [ 5000, <1 empty item> ],
+    length: 1,
+    red: null
+  }
+}
+    ✔ should add ETH to a specific campaign (7442ms)
+{
+  tx: '0x81c98f9e7179f8242a4c697c21b8df2434e33a7c65b168ab3d31f6fe548c6a7a',
+  receipt: {
+    transactionHash: '0x81c98f9e7179f8242a4c697c21b8df2434e33a7c65b168ab3d31f6fe548c6a7a',
+    transactionIndex: 0,
+    blockHash: '0x80f25b5dbc9aed8ae22708d4acc8ac0947722beaf62e4974b218dfa93e08002a',
+    blockNumber: 19230,
+    from: '0x1b32c8be812979049e6fc036df007a4a8b3f40b0',
+    to: '0xaca21b7b24302ed7f85d8151e56cbe40a5df9ce0',
+    gasUsed: 46755,
+    cumulativeGasUsed: 46755,
+    contractAddress: null,
+    logs: [],
+    status: true,
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    rawLogs: []
+  },
+  logs: []
+}
+    ✔ should withdraw funds properly (10827ms)
+{
+  tx: '0x2df0658033c036f5ac839279dd85b409c7ac9a35d64107a1179426941f71aa5c',
+  receipt: {
+    transactionHash: '0x2df0658033c036f5ac839279dd85b409c7ac9a35d64107a1179426941f71aa5c',
+    transactionIndex: 0,
+    blockHash: '0x45b76dfb2be1ee917840704116ac4201e7d62a40e67b940af0f0c91ce3af306b',
+    blockNumber: 19235,
+    from: '0xabadb7962447608cc3e3b70c6ae4d2fbc0dc4bfd',
+    to: '0x56cd147b2ef7247473d500837eeb41864c36f5db',
+    gasUsed: 30764,
+    cumulativeGasUsed: 30764,
+    contractAddress: null,
+    logs: [],
+    status: true,
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    rawLogs: []
+  },
+  logs: []
+}
+    ✔ should refund the caller's contribution (13435ms)
+
+
+  4 passing (50s)
