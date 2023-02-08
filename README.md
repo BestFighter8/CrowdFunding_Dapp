@@ -1,3 +1,12 @@
+<h2> Motivation behind the project </h2>
+The traditional way of crowdfunding relies on centralized platforms which often take a significant cut of the funds raised 
+and are susceptible to security risks and hacking attacks. By using blockchain, the platform becomes decentralized and 
+the funds raised are stored in secure smart contracts. 
+
+This allows us to provide a secure, transparent and decentralized environment for raising funds.
+
+It also eliminates the need for intermediaries and ensures that the funds are directly controlled by the campaign creator and contributors.
+<br>
 <h2> CrowdfundingCampaign Contract Documentation </h2>
 This contract allows users to create and donate to crowdfunding campaigns. It also allows campaign owners to withdraw funds if the goal is met.
 <hr>
