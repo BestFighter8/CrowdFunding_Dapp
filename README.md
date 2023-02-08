@@ -71,4 +71,4 @@ The contract has the following functions:
     getCurrentTime
         This function returns the current timestamp. It is used mostly for testing purposes, but can be used in JavaScript, so time on website will be syncronised with block.timestamp, which may vary from scripts Date.now().
 
-Contract is written on Solidity version 0.8.17. Tests are realised using Truffle and Ganache testing environment. Live version is deployed to Goerli Etherium Testnet (https://rpc.ankr.com/eth_goerli). Test also contains tests results (terminal log). Contract was also tested manually using https://remix.ethereum.org/.
+Contract is written on Solidity version 0.8.17. Tests are realised using Truffle and Ganache testing environment. Live version is deployed to Goerli Etherium Testnet (*https://rpc.ankr.com/eth_goerli* *https://goerli.etherscan.io/address/0xa3162cafdfbc006a2350c575872042ea22f38c9d*). Test also contains tests results (terminal log). Contract was also tested manually using https://remix.ethereum.org/.
