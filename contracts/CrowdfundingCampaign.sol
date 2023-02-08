@@ -46,37 +46,36 @@ contract CrowdfundingCampaign {
         string memory _description,
         string memory _image
     )public returns (uint256){
-
+        
         // Check for past campaigns that have passed deadline and have no donations
         for (uint i = 0; i < numberOfCampaigns; i++) {
-            Campaign storage campaign = campaigns[i];
-            if (block.timestamp > campaign.deadline && campaign.amountCollected == 0) {
+            if (block.timestamp > campaigns[i].deadline && campaigns[i].amountCollected == 0) {
                 delete campaigns[i];
-            } // delete old and empty campaignes
+            } // delete old and empty campaigns
         }
 
         uint _campaignID = ++numberOfCampaigns; //assign campaignID
         uint _deadline = block.timestamp + _duration; //calculate deadline based on duration (better, than taking deadline directly, since it doesn't need checks for past time)
+        Campaign storage campaign = campaigns[_campaignID];
+        campaign.campaignID = _campaignID;
+        campaign.owner = payable(msg.sender);
+        campaign.title = _title;
+        campaign.description = _description;
+        campaign.image = _image;
+        campaign.duration = _duration;
+        campaign.raisingGoal = _raisingGoal;
+        campaign.deadline = _deadline;
+        campaign.amountCollected = 0;
 
-        campaigns[_campaignID].campaignID = _campaignID;
-        campaigns[_campaignID].owner = payable(msg.sender);
-        campaigns[_campaignID].title = _title;
-        campaigns[_campaignID].description = _description;
-        campaigns[_campaignID].image = _image;
-        campaigns[_campaignID].duration = _duration;
-        campaigns[_campaignID].raisingGoal = _raisingGoal;
-        campaigns[_campaignID].deadline = _deadline;
-        campaigns[_campaignID].amountCollected = 0;
-
-        emit LogCampaign(campaigns[_campaignID].campaignID,
-        campaigns[_campaignID].owner,
-        campaigns[_campaignID].title,
-        campaigns[_campaignID].description,
-        campaigns[_campaignID].image,
-        campaigns[_campaignID].duration,
-        campaigns[_campaignID].raisingGoal,
-        campaigns[_campaignID].deadline,
-        campaigns[_campaignID].amountCollected);
+        emit LogCampaign(campaign.campaignID,
+        campaign.owner,
+        campaign.title,
+        campaign.description,
+        campaign.image,
+        campaign.duration,
+        campaign.raisingGoal,
+        campaign.deadline,
+        campaign.amountCollected);
         
         return numberOfCampaigns; // <-- get total amount of campaigns, so next one will have next ID.
     }
