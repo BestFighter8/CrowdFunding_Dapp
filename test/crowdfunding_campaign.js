@@ -11,7 +11,7 @@ const CrowdfundingCampaign = artifacts.require('CrowdfundingCampaign');
     // (3 secs between each execution, i believe this amount comes from my Ganache block generation time)
     // Then I check if stored data is actually the same as assigned before and if the deadline is slightly bigger then creation time + duration.
     // for getting time I use getCurrentTime() function from my contract, that returns current block.timestamp
-    //
+    
     // Assign values of Campaign
     const duration = 100;
     const raisingGoal = 10000;
